@@ -77,4 +77,20 @@ class ApiSewaController extends Controller
         ];
         return response()->json($data,200);
     }
+
+    public function showByPelanggan($id_pelanggan){
+        $sewa = Sewa::where('id_pelanggan', $id_pelanggan)->get();
+    
+        if($sewa->isEmpty()){
+            return response()->json(['message' => 'Data Tidak Ditemukan'], 404);
+        }
+    
+        $data = [
+            'message' => 'Data Berhasil Diambil',
+            'data' => $sewa
+        ];
+    
+        return response()->json($data, 200);
+    }
+    
 }

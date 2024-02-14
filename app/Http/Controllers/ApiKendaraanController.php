@@ -19,20 +19,32 @@ class ApiKendaraanController extends Controller
         return response()->json($data,200);
     }
 
-    public function show($id_kendaraan){
-        $kendaraan= Kendaraan::find($id_kendaraan);
-
-        if(!$kendaraan){
-            return response()->json('Data Tidak Ditemukan');
-        };
-
-        $data=[
-            'message'=>'Data Berhasil Diambil',
-            'data'=> $kendaraan
-
+    public function show($id_penyewa){
+        $kendaraan = Kendaraan::where('id_penyewa', $id_penyewa)->get();
+    
+        if($kendaraan->isEmpty()){
+            return response()->json(['message' => 'Data Tidak Ditemukan'], 404);
+        }
+    
+        $data = [
+            'message' => 'Data Berhasil Diambil',
+            'data' => $kendaraan
         ];
-        return response()->json($data,200);
+    
+        return response()->json($data, 200);
     }
+
+    public function showDetailKendaraan($id_kendaraan)
+    {
+        $kendaraan = Kendaraan::find($id_kendaraan);
+
+        if (!$kendaraan) {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
+
+        return response()->json(['message' => 'Data berhasil diambil', 'data' => $kendaraan], 200);
+    }
+    
 
 //Menambahkan Data Di API
     public function create(Request $request)

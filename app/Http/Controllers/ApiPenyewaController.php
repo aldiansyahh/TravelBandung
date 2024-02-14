@@ -18,21 +18,20 @@ class ApiPenyewaController extends Controller
         return response()->json($data,200);
     }
 
-    public function show($id_penyewa){
-        $penyewa= Penyewa::find($id_penyewa);
-
+    public function show($id_user){
+        $penyewa = Penyewa::where('id_user', $id_user)->first();
+    
         if(!$penyewa){
-            return response()->json('Data Tidak Ditemukan');
+            return response()->json(['message' => 'Data Tidak Ditemukan'], 404);
         };
-
-        $data=[
-            'message'=>'Data Berhasil Diambil',
-            'data'=> $penyewa
-
+    
+        $data = [
+            'message' => 'Data Berhasil Diambil',
+            'data' => $penyewa
         ];
-        return response()->json($data,200);
+    
+        return response()->json($data, 200);
     }
-
 //Menambahkan Data Di API
     public function create(Request $request)
     {

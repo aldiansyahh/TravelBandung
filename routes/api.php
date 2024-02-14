@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 //Api Penyewa
 Route::get('/penyewa', [ApiPenyewaController::class,'penyewa'])->name('penyewa');
-Route::get('/penyewa/{id_penyewa}', [ApiPenyewaController::class,'show']);
+Route::get('/penyewa/{id_user}', [ApiPenyewaController::class,'show']);
 Route::post('/create-penyewa', [ApiPenyewaController::class, 'create']);
 Route::put('/update-penyewa/{id_penyewa}', [ApiPenyewaController::class, 'update']);
 //Put harus di x-www-form
@@ -49,7 +49,8 @@ Route::delete('/delete-pelanggan/{id_pelanggan}', [ApiPelangganController::class
 //Api Kendaraan
 Route::get('/kendaraan', [KendaraanController::class,'kendaraan'])->name('kendaraan');
 Route::get('/kendaraan', [ApiKendaraanController::class,'kendaraan'])->name('kendaraan');
-Route::get('/kendaraan/{id_kendaraan}', [ApiKendaraanController::class,'show']);
+Route::get('/kendaraan/{id_penyewa}', [ApiKendaraanController::class,'show']);
+Route::get('/invoice/{id_kendaraan}', [ApiKendaraanController::class,'showDetailKendaraan']);
 Route::post('/create-kendaraan', [ApiKendaraanController::class, 'create']);
 Route::put('/update-kendaraan/{id_kendaraan}', [ApiKendaraanController::class, 'update']);
 //Put harus di x-www-form
@@ -90,3 +91,4 @@ Route::post('/register/Penyewa', [ApiUserController::class, 'registerPenyewa']);
 Route::post('/register/Pelanggan', [ApiUserController::class, 'registerPelanggan']);
 Route::post('/login', [ApiUserController::class, 'login']);
 
+Route::get('/sewa/pelanggan/{id_pelanggan}', [ApiSewaController::class,'showByPelanggan']);
