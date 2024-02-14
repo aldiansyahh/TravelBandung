@@ -12,10 +12,6 @@
                     <input type="text" class="form-control" id="id_user" name="id_user" required>
                 </div>
                 <div class="mb-3">
-                    <label for="id_otlate" class="form-label">ID Otlate</label>
-                    <input type="text" class="form-control" id="id_otlate" name="id_otlate" required>
-                </div>
-                <div class="mb-3">
                     <label for="nik" class="form-label">NIK</label>
                     <input type="text" class="form-control" id="nik" name="nik" required>
                 </div>

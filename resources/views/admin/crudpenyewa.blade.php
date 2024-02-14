@@ -21,7 +21,6 @@
                         <tr>
                             <th>ID Penyewa</th>
                             <th>ID User</th>
-                            <th>ID Otlante</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Email</th>
@@ -36,7 +35,6 @@
                             <tr>
                                 <td>{{ $penyewa->id_penyewa }}</td>
                                 <td>{{ $penyewa->id_user }}</td>
-                                <td>{{ $penyewa->id_otlate }}</td>
                                 <td>{{ $penyewa->nik }}</td>
                                 <td>{{ $penyewa->nama }}</td>
                                 <td>{{ $penyewa->email }}</td>

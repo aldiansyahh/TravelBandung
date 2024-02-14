@@ -20,11 +20,6 @@
         </div>
 
         <div class="mb-3">
-            <label for="id_otlate" class="form-label">ID Otlate</label>
-            <input type="text" name="id_otlate" class="form-control" id="id_otlate" required value="{{ $penyewa->id_otlate }}">
-        </div>
-
-        <div class="mb-3">
             <label for="nik" class="form-label">NIK</label>
             <input type="text" name="nik" class="form-control" id="nik" required value="{{ $penyewa->nik }}">
         </div>
